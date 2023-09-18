@@ -8,10 +8,10 @@ RSpec.describe Node do
     expect(node.next_node).to eq(nil)
   end
 
-  describe "#append" do
+  describe "#new_node" do
     it 'can add a node to next_node' do
       node = Node.new("plop")
-      node.append("peep")
+      node.new_node("peep")
 
       expect(node.next_node).to be_instance_of(Node)
       expect(node.next_node.data).to eq("peep")

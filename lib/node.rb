@@ -6,7 +6,7 @@ class Node
     @next_node = nil
   end
 
-  def append(sound)
+  def new_node(sound)
     @next_node = Node.new(sound)
   end
 end

@@ -13,7 +13,7 @@ class LinkedList
       until node.next_node == nil
         node = node.next_node
       end
-      node.append(sound)
+      node.new_node(sound)
     end
   end
 
