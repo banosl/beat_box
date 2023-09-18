@@ -50,4 +50,18 @@ class LinkedList
     @head = Node.new(sound)
     @head.add_to_next_node(current_head)
   end
+
+  def insert(position, sound)
+    node = @head
+
+    (position - 1).times do
+      node = node.next_node
+    end
+    
+    hold = node.next_node
+    node.add_to_next_node(sound)
+
+    node = node.next_node
+    node.add_to_next_node(hold)
+  end
 end

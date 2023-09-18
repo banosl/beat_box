@@ -57,11 +57,12 @@ RSpec.describe LinkedList do
   end
 
   context 'iteration2' do
+    before :each do
+      @list.append("plop")
+      @list.append("suu")
+    end
     describe '#prepend' do
       it 'can add a node to the beginning of the list' do
-        @list.append("plop")
-        @list.append("suu")
-
         expect(@list.to_string).to eq("plop suu")
         expect(@list.count).to eq(2)
 
@@ -73,7 +74,16 @@ RSpec.describe LinkedList do
     end
 
     describe '#insert' do
+      it 'can add a node at a specified position' do
+        @list.prepend("dop")
+        @list.insert(1, "woo")
 
+        expect(@list.to_string).to eq("dop woo plop suu")
+
+        @list.insert(3, "pip")
+        
+        expect(@list.to_string).to eq("dop woo plop pip suu")
+      end
     end
   end
 end
