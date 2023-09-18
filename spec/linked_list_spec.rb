@@ -12,24 +12,28 @@ RSpec.describe LinkedList do
     expect(@list.head).to eq(nil)
   end
 
-  describe '#append' do
-    it 'adds a new piece of data to the list' do
+  context 'methods' do
+    before :each do
       @list.append("doop")
-
-      expect(@list.head.data).to eq("doop")
-      expect(@list.head.next_node).to eq(nil)
     end
-  end
 
-  describe '#count' do
-    it 'tells us how many things are in the list' do
-      @list.append("doop")
-
-      expect(@list.count).to eq(1)
+    describe '#append' do
+      it 'adds a new piece of data to the list' do
+        expect(@list.head.data).to eq("doop")
+        expect(@list.head.next_node).to eq(nil)
+      end
     end
-  end
 
-  describe '#to_string' do
-    it 'generates a string of all elements in the list, separated by spaces'
+    describe '#count' do
+      it 'tells us how many things are in the list' do
+        expect(@list.count).to eq(1)
+      end
+    end
+
+    describe '#to_string' do
+      it 'generates a string of all elements in the list, separated by spaces' do
+        expect(@list.to_string).to eq("doop")
+      end
+    end
   end
 end

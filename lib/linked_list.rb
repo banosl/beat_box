@@ -25,4 +25,14 @@ class LinkedList
 
     count
   end
+
+  def to_string
+    node = @head
+    message = @head.data
+    while node.next_node != nil
+      node = node.next_node
+      message += " #{node.data}"
+    end
+    message
+  end
 end
