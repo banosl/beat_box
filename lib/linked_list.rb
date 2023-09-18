@@ -13,7 +13,7 @@ class LinkedList
       until node.next_node == nil
         node = node.next_node
       end
-      node.new_node(sound)
+      node.add_to_next_node(sound)
     end
   end
 
@@ -48,6 +48,6 @@ class LinkedList
   def prepend(sound)
     current_head = @head
     @head = Node.new(sound)
-    @head.new_node(current_head)
+    @head.add_to_next_node(current_head)
   end
 end

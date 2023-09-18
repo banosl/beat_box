@@ -6,7 +6,7 @@ class Node
     @next_node = nil
   end
 
-  def new_node(data)
+  def add_to_next_node(data)
     if data.class == String
       @next_node = Node.new(data)
     elsif
