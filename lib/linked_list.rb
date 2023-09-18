@@ -44,4 +44,10 @@ class LinkedList
     end
     message
   end
+
+  def prepend(sound)
+    current_head = @head
+    @head = Node.new(sound)
+    @head.new_node(current_head)
+  end
 end

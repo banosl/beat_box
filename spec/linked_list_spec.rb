@@ -12,7 +12,7 @@ RSpec.describe LinkedList do
     expect(@list.head).to eq(nil)
   end
 
-  context 'methods' do
+  context 'iteration 1' do
     before :each do
       @list.append("doop")
     end
@@ -53,6 +53,27 @@ RSpec.describe LinkedList do
         @list.append("boop")
         expect(@list.to_string).to eq("doop deep boop")
       end
+    end
+  end
+
+  context 'iteration2' do
+    describe '#prepend' do
+      it 'can add a node to the beginning of the list' do
+        @list.append("plop")
+        @list.append("suu")
+
+        expect(@list.to_string).to eq("plop suu")
+        expect(@list.count).to eq(2)
+
+        @list.prepend("dop")
+
+        expect(@list.to_string).to eq("dop plop suu")
+        expect(@list.count).to eq(3)
+      end
+    end
+
+    describe '#insert' do
+
     end
   end
 end
