@@ -5,7 +5,16 @@ class LinkedList
   end
 
   def append(sound)
-    @head = Node.new(sound)
+    if @head.nil?
+      @head = Node.new(sound)
+    else
+      node = @head
+
+      until node.next_node == nil
+        node = node.next_node
+      end
+      node.append(sound)
+    end
   end
 
   def count

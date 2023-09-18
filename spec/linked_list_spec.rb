@@ -22,17 +22,36 @@ RSpec.describe LinkedList do
         expect(@list.head.data).to eq("doop")
         expect(@list.head.next_node).to eq(nil)
       end
+
+      it 'adds a second piece of data to the list' do
+        @list.append("deep")
+
+        expect(@list.head.next_node).to be_instance_of(Node)
+        expect(@list.head.next_node.data).to eq("deep")
+      end
     end
 
     describe '#count' do
       it 'tells us how many things are in the list' do
         expect(@list.count).to eq(1)
+
+        @list.append("deep")
+        expect(@list.count).to eq(2)
+
+        @list.append("boop")
+        expect(@list.count).to eq(3)
       end
     end
 
     describe '#to_string' do
       it 'generates a string of all elements in the list, separated by spaces' do
         expect(@list.to_string).to eq("doop")
+
+        @list.append("deep")
+        expect(@list.to_string).to eq("doop deep")
+
+        @list.append("boop")
+        expect(@list.to_string).to eq("doop deep boop")
       end
     end
   end
