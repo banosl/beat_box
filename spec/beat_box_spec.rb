@@ -42,4 +42,24 @@ RSpec.describe BeatBox do
       bb.play
     end
   end
+
+  describe '#all ad #prepend' do
+    before :each do
+      @bb = BeatBox.new
+      @bb.append("beep")
+      @bb.append("Mississippi")
+    end
+
+    it 'can validate that only sounds in the approved list are added to a node' do
+      expect(@bb.all).to eq("beep")
+      @bb.play
+    end
+
+    it 'can add sounds to the beginning of the list and validate them' do
+      @bb.prepend("tee tee tee mississippi")
+      expect(@bb.all).to eq("tee tee tee beep")
+
+      @bb.play
+    end
+  end
 end
