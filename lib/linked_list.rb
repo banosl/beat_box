@@ -64,4 +64,21 @@ class LinkedList
     node = node.next_node
     node.add_to_next_node(hold)
   end
+
+  def find(position, length)
+    node = @head
+
+    position.times do
+      node = node.next_node
+    end
+    
+    message = node.data
+    
+    (length - 1).times do
+      node = node.next_node
+      message += " #{node.data}"
+    end
+
+    message
+  end
 end

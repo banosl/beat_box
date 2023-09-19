@@ -81,9 +81,30 @@ RSpec.describe LinkedList do
         expect(@list.to_string).to eq("dop woo plop suu")
 
         @list.insert(3, "pip")
-        
+
         expect(@list.to_string).to eq("dop woo plop pip suu")
       end
+    end
+
+    describe '#find' do
+      it 'finds the node at a given position and returns the next n nodes in a string' do
+        @list.append("deep")
+        @list.append("woo")
+        @list.append("shi")
+        @list.append("shu")
+
+        expect(@list.to_string).to eq("plop suu deep woo shi shu")
+        expect(@list.find(2,1)).to eq("deep")
+        expect(@list.find(1,3)).to eq("suu deep woo")
+      end
+    end
+
+    describe 'pop' do
+
+    end
+
+    describe 'includes?' do
+
     end
   end
 end
