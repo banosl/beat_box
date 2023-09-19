@@ -3,4 +3,12 @@ class BeatBox
   def initialize
     @list = LinkedList.new
   end
+
+  def append(sounds)
+    sound_arr = sounds.split
+
+    sound_arr.each do |sound|
+      @list.append(sound)
+    end
+  end
 end
