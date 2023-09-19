@@ -13,13 +13,22 @@ RSpec.describe BeatBox do
   end
 
   describe "#append and #count" do
-    it 'can append a string of multiple sounds as individual nodes' do
-      bb = BeatBox.new
-      bb.append("deep doo ditt")
+    before :each do
+      @bb = BeatBox.new
+      @bb.append("deep doo ditt")
+    end
 
-      expect(bb.list.head.data).to eq("deep")
-      expect(bb.list.head.next_node.data).to eq("doo")
-      expect(bb.list.to_string).to eq("deep doo ditt")
+    it 'can append a string of multiple sounds as individual nodes' do
+      expect(@bb.list.head.data).to eq("deep")
+      expect(@bb.list.head.next_node.data).to eq("doo")
+      expect(@bb.list.to_string).to eq("deep doo ditt")
+    end
+
+    it 'can count all the nodes in its list' do
+      @bb.append("woo hoo shu")
+
+      expect(@bb.list.to_string).to eq("deep doo ditt woo hoo shu")
+      expect(@bb.count).to eq(6)
     end
   end
 end

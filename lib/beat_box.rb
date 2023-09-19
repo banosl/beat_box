@@ -11,4 +11,8 @@ class BeatBox
       @list.append(sound)
     end
   end
+
+  def count
+    @list.count
+  end
 end
