@@ -13,7 +13,7 @@ class LinkedList
       until node.next_node == nil
         node = node.next_node
       end
-      node.new_node(sound)
+      node.add_to_next_node(sound)
     end
   end
 
@@ -43,5 +43,65 @@ class LinkedList
       message += " #{node.data}"
     end
     message
+  end
+
+  def prepend(sound)
+    current_head = @head
+    @head = Node.new(sound)
+    @head.add_to_next_node(current_head)
+  end
+
+  def insert(position, sound)
+    node = @head
+
+    (position - 1).times do
+      node = node.next_node
+    end
+    
+    hold = node.next_node
+    node.add_to_next_node(sound)
+
+    node = node.next_node
+    node.add_to_next_node(hold)
+  end
+
+  def find(position, length)
+    node = @head
+
+    position.times do
+      node = node.next_node
+    end
+    
+    message = node.data
+    
+    (length - 1).times do
+      node = node.next_node
+      message += " #{node.data}"
+    end
+
+    message
+  end
+
+  def include?(sound)
+    node = @head
+
+    until node.next_node.nil?
+      if node.data == sound
+        return true
+      end
+      node = node.next_node
+    end
+
+    node.data == sound
+  end
+
+  def pop
+    node = @head
+
+    while node.next_node.next_node != nil
+      node = node.next_node
+    end
+
+    node.remove_next_node
   end
 end

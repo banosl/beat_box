@@ -6,7 +6,15 @@ class Node
     @next_node = nil
   end
 
-  def new_node(sound)
-    @next_node = Node.new(sound)
+  def add_to_next_node(data)
+    if data.class == String
+      @next_node = Node.new(data)
+    elsif
+      @next_node = data
+    end
+  end
+
+  def remove_next_node
+    @next_node = nil
   end
 end
