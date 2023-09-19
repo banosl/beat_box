@@ -81,4 +81,17 @@ class LinkedList
 
     message
   end
+
+  def include?(sound)
+    node = @head
+
+    until node.next_node.nil?
+      if node.data == sound
+        return true
+      end
+      node = node.next_node
+    end
+
+    node.data == sound
+  end
 end

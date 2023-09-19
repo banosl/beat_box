@@ -99,11 +99,21 @@ RSpec.describe LinkedList do
       end
     end
 
-    describe 'pop' do
+    describe '#includes?' do
+      it 'returns true or false if the sound is in the list' do
+        @list.append("deep")
+        @list.append("woo")
+        @list.append("shi")
+        @list.append("shu")
 
+        expect(@list.to_string).to eq("plop suu deep woo shi shu")
+        expect(@list.include?("deep")).to be(true)
+        expect(@list.include?("dep")).to be(false)
+        expect(@list.include?("shu")).to be(true)
+      end
     end
 
-    describe 'includes?' do
+    describe '#pop' do
 
     end
   end
