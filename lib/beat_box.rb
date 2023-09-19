@@ -5,22 +5,25 @@ class BeatBox
     @approved = ["beep", "boop", "bap", "bip", "bep", "peep", "poop", "pap", "pip", "deep", "doo", "ditt", "woo", "hoo", "shu", "bop", "tee"]
   end
 
-  def append(sounds)
-    sound_arr = sounds.split
-
-    sound_arr.map do |sound|
-      if @approved.include?(sound)
-        @list.append(sound)
-      end
-    end
+  def append(data)
+    type = "append"
+    append_prepend(type, data)
   end
 
-  def prepend(sounds)
-    sound_arr = sounds.split
+  def prepend(data)
+    type = "prepend"
+    append_prepend(type, data)
+  end
 
-    sound_arr.map do |sound|
+  def append_prepend(type, data)
+    sounds(data).map do |sound|
       if @approved.include?(sound)
-        @list.prepend(sound)
+        case type
+        when "append"
+          @list.append(sound)
+        when "prepend"
+          @list.prepend(sound)
+        end
       end
     end
   end
@@ -35,5 +38,9 @@ class BeatBox
 
   def all
     @list.to_string
+  end
+
+  def sounds(data)
+    data.split
   end
 end

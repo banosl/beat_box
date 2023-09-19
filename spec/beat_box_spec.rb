@@ -43,7 +43,7 @@ RSpec.describe BeatBox do
     end
   end
 
-  describe '#all ad #prepend' do
+  describe '#all and #prepend' do
     before :each do
       @bb = BeatBox.new
       @bb.append("beep")
@@ -60,6 +60,33 @@ RSpec.describe BeatBox do
       expect(@bb.all).to eq("tee tee tee beep")
 
       @bb.play
+    end
+  end
+
+  describe "#append_prepend" do
+    it 'can append or prepend sounds to the list depending marker' do
+      bb = BeatBox.new
+      type = "append"
+      bb.append("tee")
+
+      expect(bb.all).to eq("tee")
+
+      bb.append_prepend(type, "beep boop beep")
+      expect(bb.all).to eq("tee beep boop beep")
+
+      type = "prepend"
+      bb.append_prepend(type, "bop bop")
+
+      expect(bb.all).to eq("bop bop tee beep boop beep")
+    end
+  end
+
+  describe "#sounds" do
+    it "can split a string of sounds into an array" do
+      bb = BeatBox.new
+      data = "beep boop bap bup"
+
+      expect(bb.sounds(data)).to eq(["beep", "boop", "bap", "bup"])
     end
   end
 end
