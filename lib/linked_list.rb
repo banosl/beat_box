@@ -13,7 +13,7 @@ class LinkedList
       until node.next_node == nil
         node = node.next_node
       end
-      node.add_to_next_node(sound)
+      node.append(sound)
     end
   end
 
@@ -48,7 +48,7 @@ class LinkedList
   def prepend(sound)
     current_head = @head
     @head = Node.new(sound)
-    @head.add_to_next_node(current_head)
+    @head.append(current_head)
   end
 
   def insert(position, sound)
@@ -59,10 +59,10 @@ class LinkedList
     end
     
     hold = node.next_node
-    node.add_to_next_node(sound)
+    node.append(sound)
 
     node = node.next_node
-    node.add_to_next_node(hold)
+    node.append(hold)
   end
 
   def find(position, length)
