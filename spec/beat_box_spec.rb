@@ -89,4 +89,31 @@ RSpec.describe BeatBox do
       expect(bb.sounds(data)).to eq(["beep", "boop", "bap", "bup"])
     end
   end
+
+  describe "#set_rate and #set_voice" do
+    before :each do
+      @bb = BeatBox.new
+      @bb.append("beep boop bap bup")
+    end
+
+    it 'can change the rate the voice speaks' do
+      expect(@bb.rate).to eq(200)
+      @bb.play
+
+      @bb.set_rate(500)
+      expect(@bb.rate).to eq(500)
+
+      @bb.play
+    end
+
+    it 'can change the voice it uses to speak' do
+      expect(@bb.voice).to eq("Samantha")
+      @bb.play
+
+      @bb.set_voice("boing")
+      expect(@bb.voice).to eq("boing")
+
+      @bb.play
+    end
+  end
 end
