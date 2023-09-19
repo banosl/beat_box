@@ -31,4 +31,15 @@ RSpec.describe BeatBox do
       expect(@bb.count).to eq(6)
     end
   end
+
+  describe "#play" do
+    it 'can play the sound' do
+      bb = BeatBox.new
+      bb.append("beep boop beep boop bop bop bap")
+
+      expect(bb.count).to eq(7)
+
+      bb.play
+    end
+  end
 end
