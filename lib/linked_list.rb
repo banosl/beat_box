@@ -9,7 +9,6 @@ class LinkedList
       @head = Node.new(sound)
     else
       node = @head
-
       until node.next_node == nil
         node = node.next_node
       end
@@ -24,14 +23,11 @@ class LinkedList
     else
       count = 1  
     end
-
     node = @head
-    
     while node.next_node != nil
       node = node.next_node
       count += 1
     end
-
     count
   end
 
@@ -53,55 +49,45 @@ class LinkedList
 
   def insert(position, sound)
     node = @head
-
     (position - 1).times do
       node = node.next_node
     end
-    
     hold = node.next_node
     node.append(sound)
-
+    
     node = node.next_node
     node.append(hold)
   end
 
   def find(position, length)
     node = @head
-
     position.times do
       node = node.next_node
     end
-    
     message = node.data
-    
     (length - 1).times do
       node = node.next_node
       message += " #{node.data}"
     end
-
     message
   end
 
   def include?(sound)
     node = @head
-
     until node.next_node.nil?
       if node.data == sound
         return true
       end
       node = node.next_node
     end
-
     node.data == sound
   end
 
   def pop
     node = @head
-
     while node.next_node.next_node != nil
       node = node.next_node
     end
-
     node.remove_next_node
   end
 end
