@@ -94,4 +94,14 @@ class LinkedList
 
     node.data == sound
   end
+
+  def pop
+    node = @head
+
+    while node.next_node.next_node != nil
+      node = node.next_node
+    end
+
+    node.remove_next_node
+  end
 end

@@ -114,7 +114,23 @@ RSpec.describe LinkedList do
     end
 
     describe '#pop' do
+      it 'removes the last sound in the list' do
+        @list.append("deep")
+        @list.append("woo")
+        @list.append("shi")
+        @list.append("shu")
 
+        expect(@list.to_string).to eq("plop suu deep woo shi shu")
+
+        @list.pop
+        expect(@list.to_string).to eq("plop suu deep woo shi")
+
+        @list.pop
+        expect(@list.to_string).to eq("plop suu deep woo")
+        
+        @list.pop
+        expect(@list.to_string).to eq("plop suu deep")
+      end
     end
   end
 end
