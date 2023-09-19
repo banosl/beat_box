@@ -13,4 +13,8 @@ class Node
       @next_node = data
     end
   end
+
+  def remove_next_node
+    @next_node = nil
+  end
 end

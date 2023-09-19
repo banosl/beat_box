@@ -1,3 +1,4 @@
+require 'pry'
 require "./lib/node.rb"
 
 RSpec.describe Node do
@@ -15,6 +16,18 @@ RSpec.describe Node do
 
       expect(node.next_node).to be_instance_of(Node)
       expect(node.next_node.data).to eq("peep")
+    end
+  end
+
+  describe "#remove_next_node" do
+    it 'can reset next node to nil' do
+      node = Node.new("plop")
+      node.add_to_next_node("peep")
+
+      expect(node.next_node.data).to eq("peep")
+          
+      node.remove_next_node
+      expect(node.next_node).to eq(nil)
     end
   end
 end
