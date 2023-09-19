@@ -18,9 +18,7 @@ class LinkedList
 
   def count
     count = 0
-    if @head == nil
-      count
-    else
+    if @head != nil
       count = 1  
     end
     node = @head
@@ -54,7 +52,7 @@ class LinkedList
     end
     hold = node.next_node
     node.append(sound)
-    
+
     node = node.next_node
     node.append(hold)
   end
